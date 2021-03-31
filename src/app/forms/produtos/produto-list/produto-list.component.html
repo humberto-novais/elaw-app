@@ -1,0 +1,33 @@
+    <p-toast></p-toast>
+    
+    <app-produto-form [produto]="produto" ></app-produto-form>
+    
+    <p-table [value]="produtos">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Modelo</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-prod>
+            <tr>
+                <td>{{prod.id}}</td>
+                <td>{{prod.nome}}</td>
+                <td>{{prod.modelo}}</td>
+                <td>{{prod.descricao}}</td>
+                <td>{{prod.valor | number: '1.2-2'}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-trash" style="float: right;"
+                        class="p-button-sm p-button-danger" (click)="delete(prod)">
+                    </button>
+                    <button pButton pRipple icon="pi pi-pencil" style="float: right;" 
+                        class="p-button-sm p-mr-1 p-button-info" (click)="edit(prod)">
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>

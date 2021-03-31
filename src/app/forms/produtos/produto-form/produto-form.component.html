@@ -1,0 +1,26 @@
+
+    <form [formGroup]="baseForm">
+        <div class="p-fluid p-formgrid p-grid">
+            <input type="hidden" #id pInputText formControlName="id"/>
+            <div class="p-field p-col-12 p-md-5">
+                <label>Nome</label>
+                <input type="text" pInputText formControlName="nome"/>
+            </div>
+            <div class="p-field p-col-12 p-md-5">
+                <label>Modelo</label>
+                <input type="text" pInputText formControlName="modelo"/>
+            </div>
+            <div class="p-field  p-col-12 p-md-2">
+                <label>Valor</label>
+                <p-inputNumber mode="decimal" locale="pt-BR" [minFractionDigits]="2" formControlName="valor"></p-inputNumber>
+            </div>
+            <div class="p-field p-col-12">
+                <label>Descrição</label>
+                <textarea pInputTextarea [rows]="3" formControlName="descricao"></textarea>
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <button style="margin-right: 10px;" type="button" pButton (click)="cancelar()" label="Cancelar"></button>
+            <button style="margin-right: 10px;" [disabled]="baseForm.invalid" type="button" pButton label="Salvar" (click)="salvar()"></button>
+        </div>
+    </form>
